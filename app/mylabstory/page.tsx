@@ -44,8 +44,8 @@ export default function MyLabStoryPage() {
                 label="Download App"
               />
               <ButtonLink
-                href={siteConfig.waitlistHref}
-                label="Join Waitlist"
+                href={siteConfig.contactHref}
+                label="Contact"
                 variant="secondary"
               />
             </div>
@@ -110,7 +110,7 @@ export default function MyLabStoryPage() {
       <Section
         eyebrow="Problem"
         title="Lab reports are important, but the experience around them is still fragmented."
-        description="The product page should speak directly to the user pain behind uploads, summaries, and trend tracking."
+        description="Important health information often arrives in formats that are hard to revisit, compare, or understand over time."
       >
         <div className="grid gap-6 md:grid-cols-3">
           {myLabStoryProblemPoints.map((problem) => (
@@ -132,7 +132,7 @@ export default function MyLabStoryPage() {
       <Section
         eyebrow="Solution"
         title="A clear flow from report upload to longitudinal understanding"
-        description="The product narrative mirrors the actual product capability: upload, extract, preview, understand, and follow trends."
+        description="MyLabStory helps turn disconnected reports into a clearer, more readable health history."
       >
         <div className="grid gap-5 lg:grid-cols-4">
           {myLabStorySolutionSteps.map((step, index) => (
@@ -152,7 +152,7 @@ export default function MyLabStoryPage() {
       <Section
         eyebrow="Features"
         title="Three product promises, kept simple"
-        description="Each section can later be expanded with real screenshots, app links, and deeper proof points without changing the layout system."
+        description="From upload to understanding to long-term tracking, the product is designed to make lab data easier to live with."
       >
         <div className="grid gap-6 lg:grid-cols-3">
           {myLabStoryFeatures.map((feature) => (
@@ -169,7 +169,7 @@ export default function MyLabStoryPage() {
       <Section
         eyebrow="Product flow"
         title="A visual story that mirrors the app journey"
-        description="Until real app screenshots are ready, the product page uses structured mock flows that are still faithful to the intended experience."
+        description="From first upload to trend review, each step is designed to feel understandable and calm."
       >
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="rounded-[2rem] border border-[var(--line)] bg-white/85 p-8 shadow-[0_18px_50px_rgba(15,23,42,0.05)]">
@@ -222,7 +222,7 @@ export default function MyLabStoryPage() {
       <Section
         eyebrow="Trust"
         title="Trust matters more in health than in almost any other category"
-        description="The page makes the trust model explicit: secure handling, user control, and careful framing around medical advice."
+        description="That means careful handling of data, clear boundaries, and language people can understand."
       >
         <div className="grid gap-6 lg:grid-cols-3">
           {myLabStoryTrustPoints.map((point) => (
@@ -241,11 +241,11 @@ export default function MyLabStoryPage() {
       </Section>
 
       <CtaBand
-        eyebrow="Call to action"
+        eyebrow="Get started"
         title="Start tracking your health story with a product that explains the data, not just stores it."
-        description="The current CTAs use mailto links so the site can launch immediately on GitHub Pages and switch to app-store or waitlist URLs later."
+        description="Get in touch to learn more about MyLabStory or request access."
         primary={{ href: siteConfig.downloadHref, label: "Download App" }}
-        secondary={{ href: siteConfig.waitlistHref, label: "Join Waitlist" }}
+        secondary={{ href: siteConfig.contactHref, label: "Contact" }}
       />
     </>
   );
