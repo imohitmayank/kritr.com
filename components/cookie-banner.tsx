@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useSyncExternalStore } from "react";
+import { usePathname } from "next/navigation";
 
 const storageKey = "kritr-cookie-consent";
 
@@ -25,11 +27,15 @@ function getServerSnapshot() {
 }
 
 export function CookieBanner() {
+  const pathname = usePathname();
   const consent = useSyncExternalStore(
     subscribe,
     getSnapshot,
     getServerSnapshot
   );
+  const privacyHref = pathname.startsWith("/mylabstory")
+    ? "/mylabstory/privacy"
+    : "/privacy";
 
   if (consent) {
     return null;
@@ -48,9 +54,15 @@ export function CookieBanner() {
             Cookie notice
           </p>
           <p className="mt-2 text-sm leading-6 text-[var(--muted-ink)]">
-            This site uses basic local storage for cookie-consent preferences and
-            can support privacy-friendly analytics later. Legal pages are always
-            available in the footer.
+            We use essential storage to remember your privacy preferences.
+            {" "}You can review more details in{" "}
+            <Link
+              href={privacyHref}
+              className="font-semibold text-[var(--ink)] underline decoration-[var(--accent)] underline-offset-4"
+            >
+              our privacy policy
+            </Link>
+            .
           </p>
         </div>
 
