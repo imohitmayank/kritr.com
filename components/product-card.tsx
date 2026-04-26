@@ -1,4 +1,4 @@
-import { Product } from "@/lib/content";
+import { Product, siteConfig } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 import { ButtonLink } from "./button-link";
@@ -21,9 +21,6 @@ export function ProductCard({ product, featured = false }: ProductCardProps) {
           <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-700">
             {product.status}
           </span>
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted-ink)]">
-            Featured product
-          </span>
         </div>
 
         <h3 className="mt-6 text-3xl font-semibold text-[var(--ink)]">
@@ -45,11 +42,7 @@ export function ProductCard({ product, featured = false }: ProductCardProps) {
         </div>
         <div className="flex flex-wrap gap-3">
           <ButtonLink href={product.href} label="View Product" />
-          <ButtonLink
-            href="/products"
-            label="All Products"
-            variant="secondary"
-          />
+          <ButtonLink href={siteConfig.contactHref} label="Contact" variant="secondary" />
         </div>
       </div>
     </article>

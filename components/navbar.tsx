@@ -51,7 +51,7 @@ export function Navbar() {
         </nav>
 
         <div className="hidden md:block">
-          <ButtonLink href={siteConfig.waitlistHref} label="Join Waitlist" />
+          <ButtonLink href={siteConfig.contactHref} label="Contact" />
         </div>
       </div>
     </header>

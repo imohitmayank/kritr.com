@@ -9,15 +9,14 @@ export default function NotFound() {
           404
         </p>
         <h1 className="mt-4 text-4xl font-semibold text-[var(--ink)] sm:text-5xl">
-          This page is not part of the current site map.
+          We couldn&apos;t find that page.
         </h1>
         <p className="mt-6 text-lg leading-8 text-[var(--muted-ink)]">
-          The GitHub Pages build will export a static 404 page here. Use the
-          links below to get back to the main product and brand routes.
+          Try heading back to Kritr or continue to MyLabStory.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <ButtonLink href="/" label="Go Home" />
-          <ButtonLink href="/products" label="View Products" variant="secondary" />
+          <ButtonLink href="/mylabstory" label="View MyLabStory" variant="secondary" />
         </div>
       </div>
     </Section>

@@ -7,7 +7,8 @@ import { Section } from "@/components/section";
 import {
   homepagePillars,
   philosophyPoints,
-  products
+  products,
+  siteConfig
 } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ export default function HomePage() {
         <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--accent)]">
-              Kritr Platform
+              Kritr
             </p>
             <h1 className="mt-6 max-w-4xl text-5xl font-semibold tracking-tight text-[var(--ink)] sm:text-6xl lg:text-7xl">
               We build AI systems that{" "}
@@ -38,15 +39,15 @@ export default function HomePage() {
               complexity, starting with health.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <ButtonLink href="/products" label="Explore Products" />
+              <ButtonLink href="/mylabstory" label="View MyLabStory" />
               <ButtonLink
-                href="/mylabstory"
-                label="View MyLabStory"
+                href={siteConfig.contactHref}
+                label="Contact"
                 variant="secondary"
               />
             </div>
             <p className="mt-6 text-sm text-[var(--muted-ink)]">
-              Built for speed, clarity, and scalable product storytelling.
+              Human-first intelligence for decisions that matter.
             </p>
           </div>
 
@@ -76,21 +77,21 @@ export default function HomePage() {
                 </div>
                 <div className="rounded-[1.5rem] border border-[var(--line)] bg-white/70 p-6">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted-ink)]">
-                    Trust
+                    Principles
                   </p>
                   <ul className="mt-5 space-y-3 text-sm leading-6 text-[var(--ink)]">
-                    <li>Static, fast, and GitHub Pages compatible</li>
-                    <li>Privacy and terms hosted under product routes</li>
-                    <li>Conversion CTA paths ready for app links</li>
+                    <li>Human-first products</li>
+                    <li>Clear explanations over noise</li>
+                    <li>Trustworthy use of AI</li>
                   </ul>
                 </div>
                 <div className="rounded-[1.5rem] bg-[var(--surface-strong)] p-6">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
-                    Structure
+                    Focus
                   </p>
                   <p className="mt-5 text-sm leading-7 text-[var(--ink)]">
-                    Homepage, products index, product landing page, and legal
-                    pages on a reusable content and component system.
+                    We begin with health because better decisions start with
+                    clearer understanding of the data people already have.
                   </p>
                 </div>
               </div>
@@ -101,8 +102,8 @@ export default function HomePage() {
 
       <Section
         eyebrow="What we do"
-        title="Three building blocks behind the Kritr platform"
-        description="The homepage gives visitors a crisp view of what Kritr stands for and where MyLabStory fits inside that story."
+        title="Three ways Kritr turns complexity into clarity"
+        description="Kritr brings together applied AI, data understanding, and product craft to create useful intelligence."
       >
         <div className="grid gap-6 md:grid-cols-3">
           {homepagePillars.map((pillar) => (
@@ -123,8 +124,8 @@ export default function HomePage() {
 
       <Section
         eyebrow="Featured product"
-        title="MyLabStory is the first proof point"
-        description="The product narrative sits inside the Kritr brand story without feeling like a disconnected microsite."
+        title="MyLabStory"
+        description="Our first product helps people make better sense of their lab history with clearer context and better continuity."
         className="pt-0"
       >
         <ProductCard product={featuredProduct} featured />
@@ -133,7 +134,7 @@ export default function HomePage() {
       <Section
         eyebrow="Philosophy"
         title="A clear point of view"
-        description="Kritr should feel precise, modern, and responsible. That philosophy shapes the brand and every product page."
+        description="We believe useful intelligence should feel calm, legible, and grounded in real human needs."
       >
         <div className="grid gap-6 lg:grid-cols-3">
           {philosophyPoints.map((point) => (
@@ -151,12 +152,11 @@ export default function HomePage() {
       </Section>
 
       <CtaBand
-        eyebrow="Next step"
-        title="Start with the product page that turns brand trust into intent."
-        description="Use MyLabStory as the conversion funnel today, then add more products on the same structure later."
+        eyebrow="Explore"
+        title="See how Kritr shows up in a product people can use today."
+        description="MyLabStory is where our approach becomes tangible: health data made clearer, more continuous, and easier to act on."
         primary={{ href: "/mylabstory", label: "View MyLabStory" }}
-        secondary={{ href: "/products", label: "Explore Products" }}
-        note={`Replace the current mailto CTA targets with your App Store, Play Store, or waitlist links when they are ready.`}
+        secondary={{ href: siteConfig.contactHref, label: "Contact" }}
       />
     </>
   );
