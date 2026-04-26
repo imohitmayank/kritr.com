@@ -4,7 +4,7 @@ import { LegalDocumentView } from "@/components/legal-document";
 import { getLegalDocument } from "@/lib/legal";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const document = await getLegalDocument("mylabstory-privacy");
+  const document = await getLegalDocument("kritr-privacy");
 
   return {
     title: document.title,
@@ -12,8 +12,8 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function MyLabStoryPrivacyPage() {
-  const document = await getLegalDocument("mylabstory-privacy");
+export default async function KritrPrivacyPage() {
+  const document = await getLegalDocument("kritr-privacy");
 
   return <LegalDocumentView document={document} />;
 }

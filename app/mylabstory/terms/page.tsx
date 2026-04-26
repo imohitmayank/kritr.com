@@ -1,21 +1,19 @@
 import type { Metadata } from "next";
 
-import { LegalLayout } from "@/components/legal-layout";
-import { termsSections } from "@/lib/content";
+import { LegalDocumentView } from "@/components/legal-document";
+import { getLegalDocument } from "@/lib/legal";
 
-export const metadata: Metadata = {
-  title: "MyLabStory Terms and Conditions",
-  description:
-    "Read the MyLabStory terms and conditions, including usage terms, medical disclaimers, and liability limits."
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const document = await getLegalDocument("mylabstory-terms");
 
-export default function MyLabStoryTermsPage() {
-  return (
-    <LegalLayout
-      title="MyLabStory Terms and Conditions"
-      effectiveDate="April 26, 2026"
-      intro="These terms govern your access to and use of MyLabStory. By using the product, you agree to the terms below."
-      sections={termsSections}
-    />
-  );
+  return {
+    title: document.title,
+    description: document.description
+  };
+}
+
+export default async function MyLabStoryTermsPage() {
+  const document = await getLegalDocument("mylabstory-terms");
+
+  return <LegalDocumentView document={document} />;
 }
