@@ -20,32 +20,55 @@ export function CtaBand({
   note
 }: CtaBandProps) {
   return (
-    <section className="py-24">
+    <section className="py-20 lg:py-24">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="overflow-hidden rounded-[2.25rem] border border-[color:rgba(255,255,255,0.55)] bg-[linear-gradient(135deg,#062124_0%,#0f4f58_50%,#55b5c8_100%)] px-8 py-10 text-white shadow-[0_28px_100px_rgba(6,33,36,0.22)] sm:px-12 sm:py-14">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/70">
-            {eyebrow}
-          </p>
-          <div className="mt-6 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-2xl">
-              <h2 className="font-serif text-4xl leading-tight sm:text-5xl">
-                {title}
-              </h2>
-              <p className="mt-4 text-lg leading-8 text-white/80">
-                {description}
-              </p>
-              {note ? <p className="mt-4 text-sm text-white/70">{note}</p> : null}
-            </div>
+        <div className="relative overflow-hidden rounded-[1.75rem] bg-[var(--ink)] px-8 py-12 text-white sm:px-12 sm:py-16">
+          <div
+            className="pointer-events-none absolute -right-10 top-0 h-72 w-72 rounded-full bg-[var(--accent)]/30 blur-3xl"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute -bottom-24 left-1/4 h-56 w-56 rounded-full bg-[var(--accent-soft)]/35 blur-3xl"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute bottom-0 right-1/3 h-40 w-40 rounded-full bg-[var(--accent-green)]/25 blur-3xl"
+            aria-hidden
+          />
 
-            <div className="flex flex-wrap gap-3">
-              <ButtonLink href={primary.href} label={primary.label} variant="light" />
-              {secondary ? (
+          <div className="relative">
+            <p className="text-sm font-semibold tracking-wide text-[var(--accent)]">
+              {eyebrow}
+            </p>
+            <div className="mt-5 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-2xl">
+                <h2 className="font-serif text-3xl leading-tight sm:text-4xl lg:text-5xl">
+                  {title}
+                </h2>
+                <p className="mt-4 text-lg leading-8 text-white/75">
+                  {description}
+                </p>
+                {note ? (
+                  <p className="mt-4 text-sm text-white/60">{note}</p>
+                ) : null}
+              </div>
+
+              <div className="flex flex-wrap gap-3">
                 <ButtonLink
-                  href={secondary.href}
-                  label={secondary.label}
-                  variant="glass"
+                  href={primary.href}
+                  label={primary.label}
+                  variant="accent"
+                  className="!rounded-lg"
                 />
-              ) : null}
+                {secondary ? (
+                  <ButtonLink
+                    href={secondary.href}
+                    label={secondary.label}
+                    variant="glass"
+                    className="!rounded-lg"
+                  />
+                ) : null}
+              </div>
             </div>
           </div>
         </div>

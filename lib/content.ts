@@ -16,9 +16,9 @@ const myLabStorySupportEmail = "mylabstory@kritr.com";
 
 export const siteConfig = {
   name: "Kritr",
-  title: "Kritr | AI systems that turn data into decisions",
+  title: "Kritr | AI that helps people decide",
   description:
-    "Kritr builds intelligent, human-first products that turn complex data into clear decisions, starting with health.",
+    "Kritr builds focused AI products for decisions that matter. First up: MyLabStory.",
   supportEmail,
   myLabStorySupportEmail,
   downloadHref: `mailto:${myLabStorySupportEmail}?subject=MyLabStory%20Download%20Access`,
@@ -33,9 +33,9 @@ export const navLinks = [
 export const products: Product[] = [
   {
     name: "MyLabStory",
-    tagline: "Health intelligence for people who want clarity, not confusion.",
+    tagline: "Your lab history in one place, written so you can actually use it.",
     description:
-      "Upload lab reports, extract biomarker data, and follow your health story over time with AI-assisted summaries.",
+      "Upload lab PDFs or photos, pull out biomarker values, and follow trends across visits — with plain-language summaries, not another opaque PDF pile.",
     href: "/mylabstory",
     status: "Live"
   }
@@ -43,87 +43,87 @@ export const products: Product[] = [
 
 export const homepagePillars = [
   {
-    title: "AI Systems",
+    title: "Focused AI",
     description:
-      "We design focused systems that help people move from raw information to clear action."
+      "Small systems for specific jobs — extract, explain, compare — not a chatbot bolted onto everything."
   },
   {
-    title: "Data Intelligence",
+    title: "Messy data, made usable",
     description:
-      "We turn fragmented inputs into structured insight, context, and decision support."
+      "We start with the files people already have and turn them into structured records you can revisit."
   },
   {
-    title: "Product Development",
+    title: "Products you can open",
     description:
-      "We bring product thinking, engineering, and design together into tools people can actually use."
+      "Design and engineering ship together. If it is not clear on a phone screen, it is not done."
   }
 ];
 
 export const philosophyPoints = [
-  "AI should simplify, not overwhelm.",
-  "AI should be human-first and easy to trust.",
-  "AI should explain complexity without pretending certainty."
+  "Explain the number. Do not bury it in jargon.",
+  "Earn trust with restraint — especially with health data.",
+  "Say what you know, and stop short of what you do not."
 ];
 
 export const myLabStoryProblemPoints = [
-  "Reports are scattered across labs, email threads, and folders.",
-  "Reference ranges and clinical terms are hard to interpret quickly.",
-  "It is difficult to compare biomarkers over time without a personal history."
+  "Reports live in email, portals, and camera rolls — nowhere you can scan as a history.",
+  "Reference ranges and abbreviations take longer to parse than they should.",
+  "Comparing last year’s panel to this year’s usually means opening two PDFs side by side."
 ];
 
 export const myLabStorySolutionSteps = [
-  "Upload a PDF or report image from your phone or computer.",
-  "AI and OCR extract biomarker values into a structured timeline.",
-  "Review plain-language summaries and highlighted out-of-range markers.",
-  "Track trends across reports so patterns become visible over time."
+  "Upload a PDF or a photo of a report.",
+  "OCR and models pull biomarker values into a structured timeline.",
+  "Read plain-language notes and see what sits outside range.",
+  "Watch markers move across reports instead of guessing from memory."
 ];
 
 export const myLabStoryFeatures = [
   {
-    title: "Upload and Extract",
+    title: "Upload and extract",
     description:
-      "Support camera captures and PDF uploads, then convert reports into structured biomarker data.",
-    eyebrow: "OCR Workflow"
+      "Camera shots and PDFs become structured biomarker rows you can save and correct.",
+    eyebrow: "Capture"
   },
   {
-    title: "Understand",
+    title: "Read the story",
     description:
-      "Get plain-language summaries, context around key markers, and flags for abnormal values.",
-    eyebrow: "AI Explanation"
+      "Short summaries, context on key markers, and clear flags when something is out of range.",
+    eyebrow: "Explain"
   },
   {
-    title: "Track",
+    title: "Track over time",
     description:
-      "Build a longitudinal record of your reports with historical comparisons and trend views.",
-    eyebrow: "Health Timeline"
+      "A running record of reports with comparisons so shifts show up before you forget the last visit.",
+    eyebrow: "Timeline"
   }
 ];
 
 export const myLabStoryScreenFlow = [
   {
     title: "Upload",
-    detail: "Start with a report image or PDF."
+    detail: "Add a report image or PDF."
   },
   {
-    title: "OCR",
-    detail: "Extraction turns dense files into usable data."
+    title: "Extract",
+    detail: "Dense pages become structured values."
   },
   {
-    title: "Preview",
-    detail: "Confirm values before saving them."
+    title: "Review",
+    detail: "Confirm numbers before they are saved."
   },
   {
     title: "Insights",
-    detail: "Review summaries and flagged markers."
+    detail: "Summaries and out-of-range flags."
   },
   {
     title: "Trends",
-    detail: "See how biomarkers move over time."
+    detail: "See how markers move visit to visit."
   }
 ];
 
 export const myLabStoryTrustPoints = [
-  "Your data should stay encrypted and under your control.",
-  "Health insights should be understandable without replacing your clinician.",
-  "The product should support reflection and preparation, not diagnosis."
+  "Your reports should be encrypted and under your control.",
+  "Insights help you prepare for a clinician — they do not replace one.",
+  "The app supports reflection and questions, not diagnosis."
 ];

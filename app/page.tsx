@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { ButtonLink } from "@/components/button-link";
 import { CtaBand } from "@/components/cta-band";
@@ -14,7 +15,7 @@ import {
 export const metadata: Metadata = {
   title: "Home",
   description:
-    "Kritr builds AI systems that turn complex data into clear decisions, starting with MyLabStory."
+    "Kritr builds focused AI products for decisions that matter. First up: MyLabStory."
 };
 
 export default function HomePage() {
@@ -22,99 +23,70 @@ export default function HomePage() {
 
   return (
     <>
-      <Section className="pb-16 pt-16 sm:pt-20">
-        <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--accent)]">
+      <section className="relative min-h-[min(100svh,56rem)] overflow-hidden">
+        <Image
+          src="/hero-kritr.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="animate-hero-image object-cover object-[center_40%]"
+        />
+        <div
+          className="absolute inset-0 bg-[linear-gradient(105deg,rgba(238,242,248,0.88)_0%,rgba(238,242,248,0.62)_38%,rgba(238,242,248,0.18)_68%,rgba(238,242,248,0.05)_100%)]"
+          aria-hidden
+        />
+
+        <div className="relative mx-auto flex min-h-[min(100svh,56rem)] max-w-6xl flex-col justify-end px-6 pb-16 pt-28 sm:pb-20 sm:pt-32 lg:px-8 lg:pb-24">
+          <div className="max-w-2xl">
+            <p className="animate-hero-fade font-serif text-5xl tracking-tight text-[var(--ink)] sm:text-6xl lg:text-7xl">
               Kritr
             </p>
-            <h1 className="mt-6 max-w-4xl text-5xl font-semibold tracking-tight text-[var(--ink)] sm:text-6xl lg:text-7xl">
-              We build AI systems that{" "}
-              <span className="font-serif text-[color:var(--accent)]">
-                turn data into decisions.
-              </span>
+            <h1 className="animate-hero-fade-delay mt-5 max-w-xl text-2xl font-semibold leading-snug tracking-tight text-[var(--ink)] sm:text-3xl lg:text-4xl">
+              We build AI that helps people decide.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--muted-ink)] sm:text-xl">
-              Kritr creates intelligent products that simplify real-world
-              complexity, starting with health.
+            <p className="animate-hero-fade-delay-2 mt-5 max-w-lg text-base leading-7 text-[var(--muted-ink)] sm:text-lg sm:leading-8">
+              Focused AI products for decisions that matter. First up:
+              MyLabStory.
             </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <ButtonLink href="/mylabstory" label="View MyLabStory" />
+            <div className="animate-hero-fade-delay-2 mt-9 flex flex-wrap gap-3">
+              <ButtonLink
+                href="/mylabstory"
+                label="View MyLabStory"
+                variant="accent"
+                className="!rounded-lg"
+              />
               <ButtonLink
                 href={siteConfig.contactHref}
                 label="Contact"
                 variant="secondary"
+                className="!rounded-lg border-[var(--ink)]/20 bg-white/70 backdrop-blur-sm"
               />
-            </div>
-            <p className="mt-6 text-sm text-[var(--muted-ink)]">
-              Human-first intelligence for decisions that matter.
-            </p>
-          </div>
-
-          <div className="relative">
-            <div className="absolute inset-x-10 top-6 h-48 rounded-full bg-[color:rgba(85,181,200,0.24)] blur-3xl" />
-            <div className="relative overflow-hidden rounded-[2.25rem] border border-[color:rgba(255,255,255,0.6)] bg-[linear-gradient(135deg,rgba(255,255,255,0.92),rgba(230,241,242,0.82))] p-8 shadow-[0_28px_100px_rgba(15,23,42,0.08)]">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-[1.5rem] bg-[var(--ink)] p-6 text-white">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
-                    Brand
-                  </p>
-                  <p className="mt-6 font-serif text-3xl">
-                    Builder of intelligence
-                  </p>
-                </div>
-                <div className="rounded-[1.5rem] bg-white/80 p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
-                    Product
-                  </p>
-                  <p className="mt-6 text-2xl font-semibold text-[var(--ink)]">
-                    MyLabStory
-                  </p>
-                  <p className="mt-3 text-sm leading-6 text-[var(--muted-ink)]">
-                    Health insights from lab reports, with a cleaner path from
-                    report uploads to trend tracking.
-                  </p>
-                </div>
-                <div className="rounded-[1.5rem] border border-[var(--line)] bg-white/70 p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted-ink)]">
-                    Principles
-                  </p>
-                  <ul className="mt-5 space-y-3 text-sm leading-6 text-[var(--ink)]">
-                    <li>Human-first products</li>
-                    <li>Clear explanations over noise</li>
-                    <li>Trustworthy use of AI</li>
-                  </ul>
-                </div>
-                <div className="rounded-[1.5rem] bg-[var(--surface-strong)] p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
-                    Focus
-                  </p>
-                  <p className="mt-5 text-sm leading-7 text-[var(--ink)]">
-                    We begin with health because better decisions start with
-                    clearer understanding of the data people already have.
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
-      </Section>
+      </section>
 
       <Section
+        tone="muted"
         eyebrow="What we do"
-        title="Three ways Kritr turns complexity into clarity"
-        description="Kritr brings together applied AI, data understanding, and product craft to create useful intelligence."
+        title="Three things we actually ship"
+        description="Applied AI, structured data, and product craft — aimed at decisions people already need to make."
       >
-        <div className="grid gap-6 md:grid-cols-3">
-          {homepagePillars.map((pillar) => (
+        <div className="grid gap-5 md:grid-cols-3">
+          {homepagePillars.map((pillar, index) => (
             <article
               key={pillar.title}
-              className="rounded-[1.75rem] border border-[var(--line)] bg-white/80 p-7 shadow-[0_18px_50px_rgba(15,23,42,0.05)]"
+              className="panel animate-rise"
+              style={{ animationDelay: `${index * 80}ms` }}
             >
-              <h2 className="text-2xl font-semibold text-[var(--ink)]">
+              <span className="step-index">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h2 className="mt-6 text-xl font-semibold text-[var(--ink)]">
                 {pillar.title}
               </h2>
-              <p className="mt-4 text-base leading-7 text-[var(--muted-ink)]">
+              <p className="mt-3 text-base leading-7 text-[var(--muted-ink)]">
                 {pillar.description}
               </p>
             </article>
@@ -123,38 +95,37 @@ export default function HomePage() {
       </Section>
 
       <Section
-        eyebrow="Featured product"
+        eyebrow="Product"
         title="MyLabStory"
-        description="Our first product helps people make better sense of their lab history with clearer context and better continuity."
-        className="pt-0"
+        description="Our first product helps people make sense of lab history — upload, extract, track."
       >
         <ProductCard product={featuredProduct} featured />
       </Section>
 
       <Section
-        eyebrow="Philosophy"
-        title="A clear point of view"
-        description="We believe useful intelligence should feel calm, legible, and grounded in real human needs."
+        tone="ink"
+        eyebrow="How we work"
+        title="A few rules we keep"
+        description="Useful AI should feel calm and honest — especially when the stakes are real."
       >
-        <div className="grid gap-6 lg:grid-cols-3">
-          {philosophyPoints.map((point) => (
-            <article
-              key={point}
-              className="rounded-[1.75rem] bg-[var(--ink)] p-8 text-white shadow-[0_18px_60px_rgba(6,33,36,0.14)]"
-            >
-              <p className="text-sm uppercase tracking-[0.18em] text-white/55">
-                Principle
+        <div className="grid gap-5 lg:grid-cols-3">
+          {philosophyPoints.map((point, index) => (
+            <article key={point} className="panel-ink">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">
+                {String(index + 1).padStart(2, "0")}
               </p>
-              <p className="mt-8 font-serif text-3xl leading-tight">{point}</p>
+              <p className="mt-6 font-serif text-2xl leading-snug text-white">
+                {point}
+              </p>
             </article>
           ))}
         </div>
       </Section>
 
       <CtaBand
-        eyebrow="Explore"
-        title="See how Kritr shows up in a product people can use today."
-        description="MyLabStory is where our approach becomes tangible: health data made clearer, more continuous, and easier to act on."
+        eyebrow="Next"
+        title="See the approach in a product people can use today."
+        description="MyLabStory turns lab reports into a history you can read and compare."
         primary={{ href: "/mylabstory", label: "View MyLabStory" }}
         secondary={{ href: siteConfig.contactHref, label: "Contact" }}
       />

@@ -8,7 +8,15 @@ type SectionProps = {
   title?: string;
   description?: string;
   className?: string;
+  tone?: "default" | "muted" | "ink";
   children: ReactNode;
+};
+
+const toneStyles = {
+  default: "bg-transparent text-[var(--ink)]",
+  muted:
+    "bg-[linear-gradient(180deg,var(--surface-muted)_0%,#eef2f8_100%)] text-[var(--ink)]",
+  ink: "bg-[var(--ink)] text-white"
 };
 
 export function Section({
@@ -17,25 +25,43 @@ export function Section({
   title,
   description,
   className,
+  tone = "default",
   children
 }: SectionProps) {
+  const isInk = tone === "ink";
+
   return (
-    <section id={id} className={cn("py-24 lg:py-32", className)}>
+    <section id={id} className={cn("py-20 lg:py-28", toneStyles[tone], className)}>
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         {(eyebrow || title || description) && (
-          <div className="max-w-3xl">
+          <div className="max-w-2xl">
             {eyebrow ? (
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--accent)]">
+              <p
+                className={cn(
+                  "text-sm font-semibold tracking-wide",
+                  isInk ? "text-[var(--accent)]" : "text-[var(--accent-soft)]"
+                )}
+              >
                 {eyebrow}
               </p>
             ) : null}
             {title ? (
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-[var(--ink)] sm:text-4xl">
+              <h2
+                className={cn(
+                  "mt-3 text-3xl font-semibold tracking-tight sm:text-4xl",
+                  isInk ? "text-white" : "text-[var(--ink)]"
+                )}
+              >
                 {title}
               </h2>
             ) : null}
             {description ? (
-              <p className="mt-5 text-lg leading-8 text-[var(--muted-ink)]">
+              <p
+                className={cn(
+                  "mt-4 text-lg leading-8",
+                  isInk ? "text-white/70" : "text-[var(--muted-ink)]"
+                )}
+              >
                 {description}
               </p>
             ) : null}

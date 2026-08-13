@@ -66,25 +66,23 @@ type LegalDocumentViewProps = {
 
 export function LegalDocumentView({ document }: LegalDocumentViewProps) {
   return (
-    <section className="py-24 lg:py-32">
-      <div className="mx-auto max-w-4xl px-6 lg:px-8">
-        <div className="rounded-[2rem] border border-[var(--line)] bg-white/85 p-8 shadow-[0_18px_50px_rgba(15,23,42,0.05)] sm:p-10">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--accent)]">
-            Legal
-          </p>
-          <h1 className="mt-4 text-4xl font-semibold tracking-tight text-[var(--ink)] sm:text-5xl">
-            {document.title}
-          </h1>
-          <p className="mt-4 text-sm font-medium text-[var(--muted-ink)]">
-            Effective date: {document.effectiveDate}
-          </p>
-          <p className="mt-6 text-lg leading-8 text-[var(--muted-ink)]">
-            {document.intro}
-          </p>
+    <section className="py-20 lg:py-28">
+      <div className="mx-auto max-w-3xl px-6 lg:px-8">
+        <p className="text-sm font-semibold tracking-wide text-[var(--accent)]">
+          Legal
+        </p>
+        <h1 className="mt-3 text-4xl font-semibold tracking-tight text-[var(--ink)] sm:text-5xl">
+          {document.title}
+        </h1>
+        <p className="mt-4 text-sm font-medium text-[var(--muted-ink)]">
+          Effective date: {document.effectiveDate}
+        </p>
+        <p className="mt-6 text-lg leading-8 text-[var(--muted-ink)]">
+          {document.intro}
+        </p>
 
-          <div className="mt-10 space-y-5">
-            {document.blocks.map((block, index) => renderBlock(block, index))}
-          </div>
+        <div className="mt-10 space-y-5 border-t border-[var(--line)] pt-10">
+          {document.blocks.map((block, index) => renderBlock(block, index))}
         </div>
       </div>
     </section>

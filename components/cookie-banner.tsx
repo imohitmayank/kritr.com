@@ -47,22 +47,20 @@ export function CookieBanner() {
   };
 
   return (
-    <div className="fixed bottom-4 left-1/2 z-50 w-[calc(100%-2rem)] max-w-3xl -translate-x-1/2 rounded-[1.75rem] border border-[var(--line)] bg-white/95 p-5 shadow-[0_18px_60px_rgba(15,23,42,0.14)] backdrop-blur-xl">
+    <div className="fixed bottom-4 left-1/2 z-50 w-[calc(100%-2rem)] max-w-3xl -translate-x-1/2 rounded-2xl border border-[var(--line)] bg-white/95 p-5 shadow-[0_18px_60px_rgba(15,23,42,0.12)] backdrop-blur-xl">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
-            Cookie notice
+          <p className="text-sm font-semibold tracking-wide text-[var(--accent)]">
+            Cookies
           </p>
           <p className="mt-2 text-sm leading-6 text-[var(--muted-ink)]">
-            We use essential storage to remember your privacy preferences.
-            {" "}You can review more details in{" "}
+            We use essential storage to remember your privacy preferences.{" "}
             <Link
               href={privacyHref}
               className="font-semibold text-[var(--ink)] underline decoration-[var(--accent)] underline-offset-4"
             >
-              our privacy policy
+              Privacy policy
             </Link>
-            .
           </p>
         </div>
 
@@ -70,14 +68,14 @@ export function CookieBanner() {
           <button
             type="button"
             onClick={() => close("dismissed")}
-            className="rounded-full border border-[var(--line)] px-4 py-2 text-sm font-semibold text-[var(--ink)] transition hover:bg-[var(--surface-strong)]"
+            className="rounded-lg border border-[var(--line)] px-4 py-2 text-sm font-semibold text-[var(--ink)] transition hover:bg-[var(--surface-strong)]"
           >
             Dismiss
           </button>
           <button
             type="button"
             onClick={() => close("accepted")}
-            className="rounded-full bg-[var(--ink)] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[color:rgba(6,33,36,0.92)]"
+            className="rounded-lg bg-[var(--ink)] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[color:rgba(26,23,48,0.92)]"
           >
             Accept
           </button>
