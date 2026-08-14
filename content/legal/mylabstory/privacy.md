@@ -121,7 +121,7 @@ We may share Aggregated Data or Anonymized Data derived from your usage of the S
 
 MyLabStory uses **OpenAI, LLC** ("OpenAI"), a third-party AI provider, to power document analysis and the AI chat assistant. Data is sent to OpenAI using OpenAI's API when you use these features.
 
-#### Document upload
+**Document upload**
 
 **What we send to OpenAI**
 
@@ -134,7 +134,7 @@ MyLabStory uses **OpenAI, LLC** ("OpenAI"), a third-party AI provider, to power 
 - To classify document type and date
 - To generate document summaries
 
-#### AI chat
+**AI chat**
 
 **What we send to OpenAI**
 
@@ -145,7 +145,7 @@ MyLabStory uses **OpenAI, LLC** ("OpenAI"), a third-party AI provider, to power 
 
 - To generate AI assistant responses to your questions about your health data
 
-#### How OpenAI uses your data
+**How OpenAI uses your data**
 
 OpenAI processes this data **only to provide the features you request**. Under OpenAI's API data usage policies at the time of processing, content submitted through the API is **not used to train OpenAI's models unless otherwise disclosed by OpenAI**. OpenAI does not use your Health Data for advertising.
 
