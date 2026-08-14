@@ -39,10 +39,20 @@ export default function MyLabStoryPage() {
 
         <div className="shell relative flex min-h-[min(100svh,56rem)] flex-col justify-end pb-16 pt-28 sm:pb-20 sm:pt-32 lg:pb-24">
           <div className="max-w-2xl">
-            <p className="animate-hero-fade font-serif text-4xl tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <div className="animate-hero-fade">
+              <Image
+                src="/mylabstory-logo.png"
+                alt=""
+                width={72}
+                height={72}
+                priority
+                className="h-16 w-16 rounded-2xl object-cover shadow-[0_12px_40px_rgba(0,0,0,0.35)] sm:h-[4.5rem] sm:w-[4.5rem]"
+              />
+            </div>
+            <p className="animate-hero-fade-delay mt-5 font-serif text-4xl tracking-tight text-white sm:text-5xl lg:text-6xl">
               MyLabStory
             </p>
-            <h1 className="animate-hero-fade-delay mt-5 max-w-xl text-2xl font-semibold leading-snug tracking-tight text-white sm:text-3xl lg:text-4xl">
+            <h1 className="animate-hero-fade-delay mt-4 max-w-xl text-2xl font-semibold leading-snug tracking-tight text-white sm:text-3xl lg:text-4xl">
               Your health journey, decoded.
             </h1>
             <p className="animate-hero-fade-delay-2 mt-5 max-w-lg text-base leading-7 text-white/80 sm:text-lg sm:leading-8">
