@@ -57,6 +57,28 @@ img {
   font-family: var(--font-serif), Georgia, serif;
 }
 
+/* Fluid content width: stays readable on phones, uses more of large laptops */
+.shell {
+  margin-inline: auto;
+  width: 100%;
+  max-width: min(90rem, calc(100% - 2.5rem));
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .shell {
+    max-width: min(90rem, calc(100% - 3.5rem));
+    padding-inline: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .shell {
+    max-width: min(90rem, calc(100% - 5rem));
+    padding-inline: 2.5rem;
+  }
+}
+
 .nav-glass {
   isolation: isolate;
   border-bottom: 1px solid rgba(255, 255, 255, 0.35);

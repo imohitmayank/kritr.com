@@ -22,7 +22,7 @@ export function Navbar() {
         isDarkHero ? "nav-glass-dark" : "nav-glass"
       )}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
+      <div className="shell flex items-center justify-between py-4">
         <Link href="/" className="group flex items-center gap-3">
           <span
             className={cn(

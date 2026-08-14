@@ -21,7 +21,7 @@ export function CtaBand({
 }: CtaBandProps) {
   return (
     <section className="py-20 lg:py-24">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+      <div className="shell">
         <div className="relative overflow-hidden rounded-[1.75rem] bg-[var(--ink)] px-8 py-12 text-white sm:px-12 sm:py-16">
           <div
             className="pointer-events-none absolute -right-10 top-0 h-72 w-72 rounded-full bg-[var(--accent)]/30 blur-3xl"
@@ -59,6 +59,7 @@ export function CtaBand({
                   label={primary.label}
                   variant="accent"
                   className="!rounded-lg"
+                  disabled={primary.disabled}
                 />
                 {secondary ? (
                   <ButtonLink

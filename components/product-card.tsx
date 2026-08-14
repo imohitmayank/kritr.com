@@ -17,7 +17,14 @@ export function ProductCard({ product, featured = false }: ProductCardProps) {
       )}
     >
       <div>
-        <span className="inline-flex rounded-md bg-[var(--accent-green)] px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-white">
+        <span
+          className={cn(
+            "inline-flex rounded-md px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-white",
+            product.status === "Coming Soon"
+              ? "bg-[var(--accent)]"
+              : "bg-[var(--accent-green)]"
+          )}
+        >
           {product.status}
         </span>
 

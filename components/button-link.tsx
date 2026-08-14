@@ -7,6 +7,7 @@ type ButtonLinkProps = {
   label: string;
   variant?: "primary" | "secondary" | "ghost" | "light" | "glass" | "accent";
   className?: string;
+  disabled?: boolean;
 };
 
 const variants = {
@@ -22,19 +23,41 @@ const variants = {
     "border border-white/40 bg-white/15 text-white backdrop-blur-sm hover:bg-white/25"
 };
 
+const disabledVariants = {
+  primary: "bg-[var(--ink)]/45 text-white",
+  accent: "bg-[var(--accent)]/45 text-white",
+  secondary:
+    "border border-[var(--line)] bg-white/50 text-[var(--muted-ink)]",
+  ghost: "text-[var(--muted-ink)]",
+  light: "bg-white/55 text-[var(--ink)]/55",
+  glass: "border border-white/20 bg-white/10 text-white/55"
+};
+
 export function ButtonLink({
   href,
   label,
   variant = "primary",
-  className
+  className,
+  disabled = false
 }: ButtonLinkProps) {
-  const isExternalHttp = href.startsWith("http");
-  const isMailto = href.startsWith("mailto:");
   const classes = cn(
     "inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-semibold transition duration-200",
-    variants[variant],
+    disabled
+      ? cn(disabledVariants[variant], "cursor-not-allowed")
+      : variants[variant],
     className
   );
+
+  if (disabled) {
+    return (
+      <span className={classes} aria-disabled="true" role="button">
+        {label}
+      </span>
+    );
+  }
+
+  const isExternalHttp = href.startsWith("http");
+  const isMailto = href.startsWith("mailto:");
 
   if (isExternalHttp || isMailto) {
     return (

@@ -6,7 +6,6 @@ import { CtaBand } from "@/components/cta-band";
 import { ProductCard } from "@/components/product-card";
 import { Section } from "@/components/section";
 import {
-  homepagePillars,
   philosophyPoints,
   products,
   siteConfig
@@ -15,7 +14,7 @@ import {
 export const metadata: Metadata = {
   title: "Home",
   description:
-    "Kritr builds focused AI products for decisions that matter. First up: MyLabStory."
+    "Kritr helps people make clearer decisions with AI, through products, applications, and collaboration."
 };
 
 export default function HomePage() {
@@ -37,7 +36,7 @@ export default function HomePage() {
           aria-hidden
         />
 
-        <div className="relative mx-auto flex min-h-[min(100svh,56rem)] max-w-6xl flex-col justify-end px-6 pb-16 pt-28 sm:pb-20 sm:pt-32 lg:px-8 lg:pb-24">
+        <div className="shell relative flex min-h-[min(100svh,56rem)] flex-col justify-end pb-16 pt-28 sm:pb-20 sm:pt-32 lg:pb-24">
           <div className="max-w-2xl">
             <p className="animate-hero-fade font-serif text-5xl tracking-tight text-[var(--ink)] sm:text-6xl lg:text-7xl">
               Kritr
@@ -46,8 +45,8 @@ export default function HomePage() {
               We build AI that helps people decide.
             </h1>
             <p className="animate-hero-fade-delay-2 mt-5 max-w-lg text-base leading-7 text-[var(--muted-ink)] sm:text-lg sm:leading-8">
-              Focused AI products for decisions that matter. First up:
-              MyLabStory.
+              Our first product is MyLabStory. If you have something to build,
+              talk to us.
             </p>
             <div className="animate-hero-fade-delay-2 mt-9 flex flex-wrap gap-3">
               <ButtonLink
@@ -57,8 +56,8 @@ export default function HomePage() {
                 className="!rounded-lg"
               />
               <ButtonLink
-                href={siteConfig.contactHref}
-                label="Contact"
+                href={siteConfig.workHref}
+                label="Work with us"
                 variant="secondary"
                 className="!rounded-lg border-[var(--ink)]/20 bg-white/70 backdrop-blur-sm"
               />
@@ -69,25 +68,25 @@ export default function HomePage() {
 
       <Section
         tone="muted"
-        eyebrow="What we do"
-        title="Three things we actually ship"
-        description="Applied AI, structured data, and product craft — aimed at decisions people already need to make."
+        eyebrow="Philosophy"
+        title="Help people decide"
+        description="Kritr exists to make complex information easier to act on. The form of the work follows the problem."
       >
         <div className="grid gap-5 md:grid-cols-3">
-          {homepagePillars.map((pillar, index) => (
+          {philosophyPoints.map((point, index) => (
             <article
-              key={pillar.title}
+              key={point.title}
               className="panel animate-rise"
               style={{ animationDelay: `${index * 80}ms` }}
             >
               <span className="step-index">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h2 className="mt-6 text-xl font-semibold text-[var(--ink)]">
-                {pillar.title}
+              <h2 className="mt-6 font-serif text-2xl leading-snug text-[var(--ink)]">
+                {point.title}
               </h2>
               <p className="mt-3 text-base leading-7 text-[var(--muted-ink)]">
-                {pillar.description}
+                {point.description}
               </p>
             </article>
           ))}
@@ -95,39 +94,18 @@ export default function HomePage() {
       </Section>
 
       <Section
-        eyebrow="Product"
+        eyebrow="In the world"
         title="MyLabStory"
-        description="Our first product helps people make sense of lab history — upload, extract, track."
+        description="One place this aim shows up: scattered medical reports, turned into a health story you can follow."
       >
         <ProductCard product={featuredProduct} featured />
       </Section>
 
-      <Section
-        tone="ink"
-        eyebrow="How we work"
-        title="A few rules we keep"
-        description="Useful AI should feel calm and honest — especially when the stakes are real."
-      >
-        <div className="grid gap-5 lg:grid-cols-3">
-          {philosophyPoints.map((point, index) => (
-            <article key={point} className="panel-ink">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">
-                {String(index + 1).padStart(2, "0")}
-              </p>
-              <p className="mt-6 font-serif text-2xl leading-snug text-white">
-                {point}
-              </p>
-            </article>
-          ))}
-        </div>
-      </Section>
-
       <CtaBand
-        eyebrow="Next"
-        title="See the approach in a product people can use today."
-        description="MyLabStory turns lab reports into a history you can read and compare."
-        primary={{ href: "/mylabstory", label: "View MyLabStory" }}
-        secondary={{ href: siteConfig.contactHref, label: "Contact" }}
+        eyebrow="Work with us"
+        title="Building a product, an app, or something in between?"
+        description="We are open to collaboration, consulting, and new work. Tell us what you are trying to decide. We will take it from there."
+        primary={{ href: siteConfig.workHref, label: "Start a conversation" }}
       />
     </>
   );

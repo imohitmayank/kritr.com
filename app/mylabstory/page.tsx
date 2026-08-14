@@ -8,16 +8,16 @@ import { Section } from "@/components/section";
 import {
   myLabStoryFeatures,
   myLabStoryProblemPoints,
-  myLabStoryScreenFlow,
   myLabStorySolutionSteps,
   myLabStoryTrustPoints,
+  myLabStoryVisionPoints,
   siteConfig
 } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "MyLabStory",
   description:
-    "Upload lab reports, understand biomarkers, and track health trends over time with MyLabStory."
+    "MyLabStory turns scattered medical reports into a living health history you can search, understand, and keep."
 };
 
 export default function MyLabStoryPage() {
@@ -37,27 +37,28 @@ export default function MyLabStoryPage() {
           aria-hidden
         />
 
-        <div className="relative mx-auto flex min-h-[min(100svh,56rem)] max-w-6xl flex-col justify-end px-6 pb-16 pt-28 sm:pb-20 sm:pt-32 lg:px-8 lg:pb-24">
+        <div className="shell relative flex min-h-[min(100svh,56rem)] flex-col justify-end pb-16 pt-28 sm:pb-20 sm:pt-32 lg:pb-24">
           <div className="max-w-2xl">
             <p className="animate-hero-fade font-serif text-4xl tracking-tight text-white sm:text-5xl lg:text-6xl">
               MyLabStory
             </p>
             <h1 className="animate-hero-fade-delay mt-5 max-w-xl text-2xl font-semibold leading-snug tracking-tight text-white sm:text-3xl lg:text-4xl">
-              Lab reports you can actually follow over time.
+              Your health journey, decoded.
             </h1>
             <p className="animate-hero-fade-delay-2 mt-5 max-w-lg text-base leading-7 text-white/80 sm:text-lg sm:leading-8">
-              Upload a PDF or photo, pull out the markers, and keep a timeline —
-              with short explanations instead of another unread file.
+              Your health is a story, not a stack of reports. Upload what you
+              already have. We turn it into a history you can actually use.
             </p>
             <div className="animate-hero-fade-delay-2 mt-9 flex flex-wrap gap-3">
               <ButtonLink
                 href={siteConfig.downloadHref}
-                label="Download app"
+                label="Download app (coming soon)"
                 variant="light"
                 className="!rounded-lg"
+                disabled
               />
               <ButtonLink
-                href={siteConfig.contactHref}
+                href={siteConfig.myLabStoryContactHref}
                 label="Contact"
                 variant="glass"
                 className="!rounded-lg"
@@ -73,18 +74,21 @@ export default function MyLabStoryPage() {
 
       <Section
         tone="muted"
-        eyebrow="The mess"
-        title="Lab data is important. The way it arrives usually is not."
-        description="Most people leave a visit with a PDF they will not open again until the next one."
+        eyebrow="The problem"
+        title="Healthcare data does not add up on its own."
+        description="Every checkup produces another PDF. Then it disappears into email, a chat thread, or a portal you will not open until someone asks."
       >
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2">
           {myLabStoryProblemPoints.map((problem, index) => (
-            <article key={problem} className="panel">
+            <article key={problem.title} className="panel">
               <span className="step-index">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <p className="mt-6 text-lg leading-8 text-[var(--ink)]">
-                {problem}
+              <h3 className="mt-5 text-xl font-semibold text-[var(--ink)]">
+                {problem.title}
+              </h3>
+              <p className="mt-3 text-base leading-7 text-[var(--muted-ink)]">
+                {problem.description}
               </p>
             </article>
           ))}
@@ -93,28 +97,31 @@ export default function MyLabStoryPage() {
 
       <Section
         tone="ink"
-        eyebrow="The flow"
-        title="From upload to a history you can skim"
-        description="Four steps. No portal scavenger hunt."
+        eyebrow="How it works"
+        title="Documents in. Understanding out."
+        description="We are not building another storage app. Reports are the input. A living health history is the output."
       >
         <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {myLabStorySolutionSteps.map((step, index) => (
-            <li key={step} className="panel-ink">
+            <li key={step.title} className="panel-ink">
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent)] text-sm font-bold text-white">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <p className="mt-5 text-base leading-7 text-white/85">{step}</p>
+              <h3 className="mt-5 font-serif text-2xl text-white">{step.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-white/75">
+                {step.description}
+              </p>
             </li>
           ))}
         </ol>
       </Section>
 
       <Section
-        eyebrow="Features"
-        title="Capture, explain, track"
-        description="The product stays narrow on purpose."
+        eyebrow="In the app"
+        title="What you can do today"
+        description="Upload, search, track, ask. Built for people managing their own health, not for hospital software."
       >
-        <div className="grid gap-5 lg:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {myLabStoryFeatures.map((feature) => (
             <FeatureCard
               key={feature.title}
@@ -128,46 +135,25 @@ export default function MyLabStoryPage() {
 
       <Section
         tone="muted"
-        eyebrow="In the app"
-        title="What the journey looks like"
-        description="Upload → extract → review → insights → trends."
-      >
-        <div className="relative grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          <div
-            className="pointer-events-none absolute left-0 right-0 top-[1.9rem] hidden h-px bg-[var(--line)] lg:block"
-            aria-hidden
-          />
-          {myLabStoryScreenFlow.map((item, index) => (
-            <article key={item.title} className="relative panel pt-6">
-              <span className="relative z-[1] step-index">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <h3 className="mt-5 text-xl font-semibold text-[var(--ink)]">
-                {item.title}
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-[var(--muted-ink)]">
-                {item.detail}
-              </p>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        eyebrow="Trust"
-        title="Health data needs a shorter leash"
-        description="Encryption, clear limits, and language that does not overpromise."
+        eyebrow="Privacy"
+        title="Health data is personal. We treat it that way."
+        description="Ownership, care, and language that does not overpromise. You stay in control."
       >
         <div className="grid gap-5 lg:grid-cols-3">
           {myLabStoryTrustPoints.map((point, index) => (
             <article
-              key={point}
+              key={point.title}
               className="rounded-[1.25rem] border border-[var(--line)] border-l-4 border-l-[var(--accent-soft)] bg-white/70 p-7"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent-soft)]">
                 {String(index + 1).padStart(2, "0")}
               </p>
-              <p className="mt-4 text-base leading-8 text-[var(--ink)]">{point}</p>
+              <h3 className="mt-4 text-xl font-semibold text-[var(--ink)]">
+                {point.title}
+              </h3>
+              <p className="mt-3 text-base leading-7 text-[var(--muted-ink)]">
+                {point.description}
+              </p>
             </article>
           ))}
         </div>
@@ -177,12 +163,35 @@ export default function MyLabStoryPage() {
         </div>
       </Section>
 
+      <Section
+        eyebrow="Ahead"
+        title="A longer story, over time"
+        description="The product starts with reports. The direction is a personal health companion: family, medicines, wearables, and patterns that only show up across years."
+      >
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {myLabStoryVisionPoints.map((point) => (
+            <article key={point.title} className="panel">
+              <h3 className="text-xl font-semibold text-[var(--ink)]">
+                {point.title}
+              </h3>
+              <p className="mt-3 text-base leading-7 text-[var(--muted-ink)]">
+                {point.description}
+              </p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
       <CtaBand
-        eyebrow="Get started"
-        title="Start a health timeline you can actually reread."
-        description="Ask for download access, or write if you have questions about MyLabStory."
-        primary={{ href: siteConfig.downloadHref, label: "Download app" }}
-        secondary={{ href: siteConfig.contactHref, label: "Contact" }}
+        eyebrow="Coming soon"
+        title="One home for your health history."
+        description="The app is not public yet. Write if you want updates, or if you have questions about MyLabStory."
+        primary={{
+          href: siteConfig.downloadHref,
+          label: "Download app (coming soon)",
+          disabled: true
+        }}
+        secondary={{ href: siteConfig.myLabStoryContactHref, label: "Contact" }}
       />
     </>
   );

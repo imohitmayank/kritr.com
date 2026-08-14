@@ -32,7 +32,7 @@ export function Section({
 
   return (
     <section id={id} className={cn("py-20 lg:py-28", toneStyles[tone], className)}>
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+      <div className="shell">
         {(eyebrow || title || description) && (
           <div className="max-w-2xl">
             {eyebrow ? (
