@@ -10,25 +10,60 @@ import { ButtonLink } from "./button-link";
 
 export function Navbar() {
   const pathname = usePathname();
+  const isHome = pathname === "/";
+  const isDarkHero = pathname === "/mylabstory";
+  const isOverlay = isHome || isDarkHero;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/60 bg-[color:rgba(244,247,248,0.82)] backdrop-blur-xl">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
+    <header
+      className={cn(
+        "z-50 transition",
+        isOverlay ? "fixed inset-x-0 top-0" : "sticky top-0",
+        isDarkHero ? "nav-glass-dark" : "nav-glass"
+      )}
+    >
+      <div className="shell flex items-center justify-between py-4">
         <Link href="/" className="group flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--ink)] text-sm font-bold text-white shadow-[0_10px_30px_rgba(6,33,36,0.14)]">
+          <span
+            className={cn(
+              "flex h-9 w-9 items-center justify-center rounded-xl text-sm font-bold shadow-[inset_0_1px_0_rgba(255,255,255,0.35)]",
+              isDarkHero
+                ? "bg-white/90 text-[var(--ink)] backdrop-blur-md"
+                : "bg-[var(--ink)]/90 text-white backdrop-blur-md"
+            )}
+          >
             K
           </span>
           <div>
-            <div className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--muted-ink)]">
+            <div
+              className={cn(
+                "text-sm font-semibold tracking-[0.08em]",
+                isDarkHero ? "text-white" : "text-[var(--ink)]"
+              )}
+            >
               Kritr
             </div>
-            <div className="font-serif text-lg text-[var(--ink)] transition group-hover:text-[var(--accent)]">
-              Intelligence, made useful.
+            <div
+              className={cn(
+                "text-xs transition",
+                isDarkHero
+                  ? "text-white/70 group-hover:text-white"
+                  : "text-[var(--muted-ink)] group-hover:text-[var(--accent)]"
+              )}
+            >
+              AI for clearer decisions
             </div>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-2 md:flex">
+        <nav
+          className={cn(
+            "hidden items-center gap-1 rounded-full p-1 md:flex",
+            isDarkHero
+              ? "bg-white/8 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]"
+              : "bg-white/25 shadow-[inset_0_1px_0_rgba(255,255,255,0.45)]"
+          )}
+        >
           {navLinks.map((link) => {
             const active =
               link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
@@ -38,10 +73,14 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "rounded-full px-4 py-2 text-sm font-medium transition",
-                  active
-                    ? "bg-white text-[var(--ink)] shadow-[0_8px_30px_rgba(6,33,36,0.06)]"
-                    : "text-[var(--muted-ink)] hover:bg-white/80 hover:text-[var(--ink)]"
+                  "rounded-full px-3.5 py-2 text-sm font-medium transition",
+                  isDarkHero
+                    ? active
+                      ? "bg-white/20 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.25)]"
+                      : "text-white/75 hover:bg-white/10 hover:text-white"
+                    : active
+                      ? "bg-white/70 text-[var(--ink)] shadow-[0_1px_8px_rgba(26,23,48,0.06),inset_0_1px_0_rgba(255,255,255,0.8)]"
+                      : "text-[var(--muted-ink)] hover:bg-white/40 hover:text-[var(--ink)]"
                 )}
               >
                 {link.label}
@@ -51,7 +90,12 @@ export function Navbar() {
         </nav>
 
         <div className="hidden md:block">
-          <ButtonLink href={siteConfig.contactHref} label="Contact" />
+          <ButtonLink
+            href={siteConfig.contactHref}
+            label="Contact"
+            variant={isDarkHero ? "light" : "primary"}
+            className="!rounded-full !px-4 !py-2.5"
+          />
         </div>
       </div>
     </header>

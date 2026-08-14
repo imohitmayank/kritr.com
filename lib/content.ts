@@ -1,6 +1,7 @@
 export type ActionLink = {
   href: string;
   label: string;
+  disabled?: boolean;
 };
 
 export type Product = {
@@ -16,13 +17,15 @@ const myLabStorySupportEmail = "mylabstory@kritr.com";
 
 export const siteConfig = {
   name: "Kritr",
-  title: "Kritr | AI systems that turn data into decisions",
+  title: "Kritr | AI that helps people decide",
   description:
-    "Kritr builds intelligent, human-first products that turn complex data into clear decisions, starting with health.",
+    "Kritr helps people make clearer decisions with AI, through products, applications, and collaboration.",
   supportEmail,
   myLabStorySupportEmail,
   downloadHref: `mailto:${myLabStorySupportEmail}?subject=MyLabStory%20Download%20Access`,
-  contactHref: `mailto:${supportEmail}?subject=Kritr%20Contact`
+  contactHref: `mailto:${supportEmail}?subject=Kritr%20Contact`,
+  workHref: `mailto:${supportEmail}?subject=Work%20with%20Kritr`,
+  myLabStoryContactHref: `mailto:${myLabStorySupportEmail}?subject=MyLabStory`
 };
 
 export const navLinks = [
@@ -33,97 +36,154 @@ export const navLinks = [
 export const products: Product[] = [
   {
     name: "MyLabStory",
-    tagline: "Health intelligence for people who want clarity, not confusion.",
+    tagline: "Your health is a story, not a stack of reports.",
     description:
-      "Upload lab reports, extract biomarker data, and follow your health story over time with AI-assisted summaries.",
+      "An AI companion that turns scattered medical reports into a living health history you can search, understand, and follow over time.",
     href: "/mylabstory",
-    status: "Live"
-  }
-];
-
-export const homepagePillars = [
-  {
-    title: "AI Systems",
-    description:
-      "We design focused systems that help people move from raw information to clear action."
-  },
-  {
-    title: "Data Intelligence",
-    description:
-      "We turn fragmented inputs into structured insight, context, and decision support."
-  },
-  {
-    title: "Product Development",
-    description:
-      "We bring product thinking, engineering, and design together into tools people can actually use."
+    status: "Coming Soon"
   }
 ];
 
 export const philosophyPoints = [
-  "AI should simplify, not overwhelm.",
-  "AI should be human-first and easy to trust.",
-  "AI should explain complexity without pretending certainty."
+  {
+    title: "Start small, then expand",
+    description:
+      "Start with one decision worth getting right. Expand only when the work earns it."
+  },
+  {
+    title: "Show the work",
+    description:
+      "People should see how a result was reached. If they cannot check it, they cannot trust it."
+  },
+  {
+    title: "Stop at the edge of certainty",
+    description:
+      "If we do not know, we should not pretend. Overconfident AI is worse than a missing answer."
+  }
 ];
 
 export const myLabStoryProblemPoints = [
-  "Reports are scattered across labs, email threads, and folders.",
-  "Reference ranges and clinical terms are hard to interpret quickly.",
-  "It is difficult to compare biomarkers over time without a personal history."
+  {
+    title: "Reports are scattered",
+    description:
+      "Labs, hospital portals, email, a drawer of PDFs. Every provider has its own format. Nothing lives in one place."
+  },
+  {
+    title: "The language is not yours",
+    description:
+      "HDL, LDL, TSH, HbA1c, MCV, ESR. Most people look the terms up after a checkup. The report was written for a clinician, not for you."
+  },
+  {
+    title: "Today is not a trend",
+    description:
+      "A single value says what happened this visit. It does not say if it is improving, worsening, or just how you usually look."
+  },
+  {
+    title: "Care stays reactive",
+    description:
+      "Doctors often see one snapshot. Patients rarely arrive with years of organized history. Patterns get missed until they are loud."
+  }
 ];
 
 export const myLabStorySolutionSteps = [
-  "Upload a PDF or report image from your phone or computer.",
-  "AI and OCR extract biomarker values into a structured timeline.",
-  "Review plain-language summaries and highlighted out-of-range markers.",
-  "Track trends across reports so patterns become visible over time."
+  {
+    title: "Upload",
+    description: "A PDF, a photo, or a camera scan. Any report you already have."
+  },
+  {
+    title: "Extract",
+    description:
+      "AI pulls biomarkers, values, units, ranges, dates, lab, and document type into structured data."
+  },
+  {
+    title: "Organize",
+    description:
+      "Searchable documents, biomarker timelines, summaries, and historical values. Not another folder of files."
+  },
+  {
+    title: "Use it",
+    description:
+      "Ask questions, see trends, compare visits, and walk into the next appointment with a story instead of a stack."
+  }
 ];
 
 export const myLabStoryFeatures = [
   {
-    title: "Upload and Extract",
+    title: "AI document upload",
     description:
-      "Support camera captures and PDF uploads, then convert reports into structured biomarker data.",
-    eyebrow: "OCR Workflow"
+      "Camera, PDF, or image. The report is read automatically: biomarkers, values, units, and ranges included.",
+    eyebrow: "Capture"
   },
   {
-    title: "Understand",
+    title: "Document library",
     description:
-      "Get plain-language summaries, context around key markers, and flags for abnormal values.",
-    eyebrow: "AI Explanation"
+      "Every upload is stored, searchable, and easy to preview. Find last year’s panel without hunting email.",
+    eyebrow: "Library"
   },
   {
-    title: "Track",
+    title: "Biomarker tracking",
     description:
-      "Build a longitudinal record of your reports with historical comparisons and trend views.",
-    eyebrow: "Health Timeline"
-  }
-];
-
-export const myLabStoryScreenFlow = [
-  {
-    title: "Upload",
-    detail: "Start with a report image or PDF."
+      "Each marker joins a timeline: historical values, charts, reference ranges, and what sat outside them.",
+    eyebrow: "Trends"
   },
   {
-    title: "OCR",
-    detail: "Extraction turns dense files into usable data."
+    title: "Plain-English summaries",
+    description:
+      "Each report gets a short read: major findings, abnormal results, and what is worth noticing.",
+    eyebrow: "Summaries"
   },
   {
-    title: "Preview",
-    detail: "Confirm values before saving them."
+    title: "Ask your history",
+    description:
+      "Why is my LDL rising? Explain my thyroid. Compare this visit with last year. The chat answers from your own records.",
+    eyebrow: "Chat"
   },
   {
-    title: "Insights",
-    detail: "Review summaries and flagged markers."
-  },
-  {
-    title: "Trends",
-    detail: "See how biomarkers move over time."
+    title: "Home dashboard",
+    description:
+      "Recent reports, highlights, and a sense of what has changed, without opening five PDFs.",
+    eyebrow: "Overview"
   }
 ];
 
 export const myLabStoryTrustPoints = [
-  "Your data should stay encrypted and under your control.",
-  "Health insights should be understandable without replacing your clinician.",
-  "The product should support reflection and preparation, not diagnosis."
+  {
+    title: "You own the data",
+    description:
+      "Health records are yours. We treat them that way: carefully, with restraint, and no mystery about where they go."
+  },
+  {
+    title: "A companion, not a clinician",
+    description:
+      "MyLabStory helps you prepare for a doctor. It does not diagnose, treat, or replace medical advice."
+  },
+  {
+    title: "Calm by design",
+    description:
+      "No alarmist red screens. The point is understanding over time, not a panic after every lab."
+  }
+];
+
+export const myLabStoryVisionPoints = [
+  {
+    title: "Family health",
+    description: "Parents, children, a spouse. One account for the people you already look after."
+  },
+  {
+    title: "Medicines and visits",
+    description: "Prescriptions, reminders, appointments, and notes alongside the reports they belong to."
+  },
+  {
+    title: "A fuller timeline",
+    description: "Labs, surgeries, vaccinations, diagnoses. Chapters in one history, not separate piles."
+  },
+  {
+    title: "Wearables, later",
+    description: "Daily metrics from the health apps already on your phone, next to the bloodwork, when we get there."
+  },
+  {
+    title: "Patterns over years",
+    description:
+      "Cholesterol climbing for three years. Vitamin D dipping every winter. The kind of notice a single report never gives."
+  }
 ];
