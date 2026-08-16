@@ -44,24 +44,6 @@ export const products: Product[] = [
   }
 ];
 
-export const philosophyPoints = [
-  {
-    title: "Start small, then expand",
-    description:
-      "Start with one decision worth getting right. Expand only when the work earns it."
-  },
-  {
-    title: "Show the work",
-    description:
-      "People should see how a result was reached. If they cannot check it, they cannot trust it."
-  },
-  {
-    title: "Stop at the edge of certainty",
-    description:
-      "If we do not know, we should not pretend. Overconfident AI is worse than a missing answer."
-  }
-];
-
 export const myLabStoryProblemPoints = [
   {
     title: "Reports are scattered",

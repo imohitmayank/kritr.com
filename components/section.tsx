@@ -9,7 +9,7 @@ type SectionProps = {
   description?: string;
   className?: string;
   tone?: "default" | "muted" | "ink";
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 const toneStyles = {
@@ -67,9 +67,11 @@ export function Section({
             ) : null}
           </div>
         )}
-        <div className={title || description ? "mt-12" : undefined}>
-          {children}
-        </div>
+        {children ? (
+          <div className={title || description || eyebrow ? "mt-12" : undefined}>
+            {children}
+          </div>
+        ) : null}
       </div>
     </section>
   );

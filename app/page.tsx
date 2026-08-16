@@ -6,7 +6,6 @@ import { CtaBand } from "@/components/cta-band";
 import { ProductCard } from "@/components/product-card";
 import { Section } from "@/components/section";
 import {
-  philosophyPoints,
   products,
   siteConfig
 } from "@/lib/content";
@@ -67,36 +66,9 @@ export default function HomePage() {
       </section>
 
       <Section
-        tone="muted"
-        eyebrow="Philosophy"
-        title="Help people decide"
-        description="Kritr exists to make complex information easier to act on. The form of the work follows the problem."
-      >
-        <div className="grid gap-5 md:grid-cols-3">
-          {philosophyPoints.map((point, index) => (
-            <article
-              key={point.title}
-              className="panel animate-rise"
-              style={{ animationDelay: `${index * 80}ms` }}
-            >
-              <span className="step-index">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <h2 className="mt-6 font-serif text-2xl leading-snug text-[var(--ink)]">
-                {point.title}
-              </h2>
-              <p className="mt-3 text-base leading-7 text-[var(--muted-ink)]">
-                {point.description}
-              </p>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      <Section
         eyebrow="In the world"
         title="MyLabStory"
-        description="One place this aim shows up: scattered medical reports, turned into a health story you can follow."
+        description="Scattered medical reports, turned into a health story you can follow."
       >
         <ProductCard product={featuredProduct} featured />
       </Section>
