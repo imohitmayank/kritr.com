@@ -23,8 +23,8 @@ export function ScreenshotStrip({ slides }: ScreenshotStripProps) {
             <Image
               src={slide.src}
               alt={slide.alt}
-              width={800}
-              height={1729}
+              width={554}
+              height={1200}
               sizes="(max-width: 640px) 224px, (max-width: 1024px) 256px, 288px"
               className="h-auto w-full"
               priority={index === 0}
