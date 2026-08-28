@@ -3,12 +3,16 @@ import Image from "next/image";
 
 import { ButtonLink } from "@/components/button-link";
 import { CtaBand } from "@/components/cta-band";
+import { SocialLinks } from "@/components/social-links";
 import { FeatureCard } from "@/components/feature-card";
+import { ScreenshotStrip } from "@/components/screenshot-strip";
 import { Section } from "@/components/section";
 import {
   myLabStoryFeatures,
   myLabStoryProblemPoints,
+  myLabStoryScreenshots,
   myLabStorySolutionSteps,
+  myLabStorySocialLinks,
   myLabStoryTrustPoints,
   myLabStoryVisionPoints,
   siteConfig
@@ -62,10 +66,9 @@ export default function MyLabStoryPage() {
             <div className="animate-hero-fade-delay-2 mt-9 flex flex-wrap gap-3">
               <ButtonLink
                 href={siteConfig.downloadHref}
-                label="Download app (coming soon)"
+                label="Download on the App Store"
                 variant="light"
                 className="!rounded-lg"
-                disabled
               />
               <ButtonLink
                 href={siteConfig.myLabStoryContactHref}
@@ -74,6 +77,11 @@ export default function MyLabStoryPage() {
                 className="!rounded-lg"
               />
             </div>
+            <SocialLinks
+              links={myLabStorySocialLinks}
+              variant="light"
+              className="animate-hero-fade-delay-2 mt-5"
+            />
             <p className="animate-hero-fade-delay-2 mt-6 text-sm text-white/65">
               MyLabStory is not a medical device and does not provide medical
               advice.
@@ -81,6 +89,15 @@ export default function MyLabStoryPage() {
           </div>
         </div>
       </section>
+
+      <Section
+        eyebrow="Preview"
+        title="See it in action"
+        description="Upload reports, read summaries, track biomarkers, and ask questions from your own health history."
+        className="bg-[linear-gradient(180deg,#eef2f8_0%,#ffffff_100%)] py-16 lg:py-20"
+      >
+        <ScreenshotStrip slides={myLabStoryScreenshots} />
+      </Section>
 
       <Section
         tone="muted"
@@ -193,13 +210,12 @@ export default function MyLabStoryPage() {
       </Section>
 
       <CtaBand
-        eyebrow="Coming soon"
+        eyebrow="Available now"
         title="One home for your health history."
-        description="The app is not public yet. Write if you want updates, or if you have questions about MyLabStory."
+        description="Download MyLabStory on the App Store, or write if you have questions."
         primary={{
           href: siteConfig.downloadHref,
-          label: "Download app (coming soon)",
-          disabled: true
+          label: "Download on the App Store"
         }}
         secondary={{ href: siteConfig.myLabStoryContactHref, label: "Contact" }}
       />

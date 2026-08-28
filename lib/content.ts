@@ -12,6 +12,18 @@ export type Product = {
   tagline: string;
 };
 
+export type AppScreenshot = {
+  src: string;
+  alt: string;
+  caption?: string;
+};
+
+export type SocialLink = {
+  href: string;
+  label: string;
+  network: "instagram" | "x" | "linkedin";
+};
+
 const supportEmail = "contact@kritr.com";
 const myLabStorySupportEmail = "mylabstory@kritr.com";
 
@@ -22,11 +34,29 @@ export const siteConfig = {
     "Kritr helps people make clearer decisions with AI, through products, applications, and collaboration.",
   supportEmail,
   myLabStorySupportEmail,
-  downloadHref: `mailto:${myLabStorySupportEmail}?subject=MyLabStory%20Download%20Access`,
+  downloadHref: "https://apps.apple.com/in/app/mylabstory/id6757186292",
   contactHref: `mailto:${supportEmail}?subject=Kritr%20Contact`,
   workHref: `mailto:${supportEmail}?subject=Work%20with%20Kritr`,
   myLabStoryContactHref: `mailto:${myLabStorySupportEmail}?subject=MyLabStory`
 };
+
+export const myLabStorySocialLinks: SocialLink[] = [
+  {
+    href: "https://www.instagram.com/mylabstoryofficial",
+    label: "Instagram",
+    network: "instagram"
+  },
+  {
+    href: "https://x.com/mylabstory",
+    label: "X (Twitter)",
+    network: "x"
+  },
+  {
+    href: "https://www.linkedin.com/company/mylabstory/",
+    label: "LinkedIn",
+    network: "linkedin"
+  }
+];
 
 export const navLinks = [
   { href: "/", label: "Home" },
@@ -40,7 +70,35 @@ export const products: Product[] = [
     description:
       "An AI companion that turns scattered medical reports into a living health history you can search, understand, and follow over time.",
     href: "/mylabstory",
-    status: "Coming Soon"
+    status: "Live"
+  }
+];
+
+export const myLabStoryScreenshots: AppScreenshot[] = [
+  {
+    src: "/mylabstory/screenshots/overview.webp",
+    alt: "MyLabStory home dashboard showing biomarker overview and recent documents",
+    caption: "Home dashboard"
+  },
+  {
+    src: "/mylabstory/screenshots/capture.webp",
+    alt: "MyLabStory add document screen with upload and camera options",
+    caption: "AI document upload"
+  },
+  {
+    src: "/mylabstory/screenshots/summaries.webp",
+    alt: "MyLabStory AI summary of a blood report in plain English",
+    caption: "Plain-English summaries"
+  },
+  {
+    src: "/mylabstory/screenshots/trends.webp",
+    alt: "MyLabStory biomarker tracking with values and trends",
+    caption: "Biomarker tracking"
+  },
+  {
+    src: "/mylabstory/screenshots/chat.webp",
+    alt: "MyLabStory AI health assistant chat explaining lab results",
+    caption: "Ask your history"
   }
 ];
 
