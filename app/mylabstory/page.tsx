@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import { ButtonLink } from "@/components/button-link";
 import { CtaBand } from "@/components/cta-band";
+import { SocialLinks } from "@/components/social-links";
 import { FeatureCard } from "@/components/feature-card";
 import { ScreenshotStrip } from "@/components/screenshot-strip";
 import { Section } from "@/components/section";
@@ -11,6 +12,7 @@ import {
   myLabStoryProblemPoints,
   myLabStoryScreenshots,
   myLabStorySolutionSteps,
+  myLabStorySocialLinks,
   myLabStoryTrustPoints,
   myLabStoryVisionPoints,
   siteConfig
@@ -75,6 +77,11 @@ export default function MyLabStoryPage() {
                 className="!rounded-lg"
               />
             </div>
+            <SocialLinks
+              links={myLabStorySocialLinks}
+              variant="light"
+              className="animate-hero-fade-delay-2 mt-5"
+            />
             <p className="animate-hero-fade-delay-2 mt-6 text-sm text-white/65">
               MyLabStory is not a medical device and does not provide medical
               advice.

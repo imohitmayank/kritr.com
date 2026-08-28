@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { siteConfig } from "@/lib/content";
+import { SocialLinks } from "@/components/social-links";
+import { myLabStorySocialLinks, siteConfig } from "@/lib/content";
 
 export function Footer() {
   const pathname = usePathname();
@@ -47,6 +48,9 @@ export function Footer() {
           >
             {contactEmail}
           </a>
+          {isMyLabStoryContext ? (
+            <SocialLinks links={myLabStorySocialLinks} className="mt-2" />
+          ) : null}
         </div>
       </div>
     </footer>

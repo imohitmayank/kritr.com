@@ -18,6 +18,12 @@ export type AppScreenshot = {
   caption?: string;
 };
 
+export type SocialLink = {
+  href: string;
+  label: string;
+  network: "instagram" | "x" | "linkedin";
+};
+
 const supportEmail = "contact@kritr.com";
 const myLabStorySupportEmail = "mylabstory@kritr.com";
 
@@ -33,6 +39,24 @@ export const siteConfig = {
   workHref: `mailto:${supportEmail}?subject=Work%20with%20Kritr`,
   myLabStoryContactHref: `mailto:${myLabStorySupportEmail}?subject=MyLabStory`
 };
+
+export const myLabStorySocialLinks: SocialLink[] = [
+  {
+    href: "https://www.instagram.com/mylabstoryofficial",
+    label: "Instagram",
+    network: "instagram"
+  },
+  {
+    href: "https://x.com/mylabstory",
+    label: "X (Twitter)",
+    network: "x"
+  },
+  {
+    href: "https://www.linkedin.com/company/mylabstory/",
+    label: "LinkedIn",
+    network: "linkedin"
+  }
+];
 
 export const navLinks = [
   { href: "/", label: "Home" },
