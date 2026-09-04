@@ -34,9 +34,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-kritr.jpg",
-        width: 1168,
-        height: 880,
-        alt: "Kritr"
+        width: 1200,
+        height: 630,
+        alt: "Kritr logo"
       }
     ]
   },
