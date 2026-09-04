@@ -19,8 +19,7 @@ import {
 } from "@/lib/content";
 
 const myLabStoryTitle = "MyLabStory";
-const myLabStoryDescription =
-  "MyLabStory turns scattered medical reports into a living health history you can search, understand, and keep.";
+const myLabStoryDescription = "Your health journey, decoded.";
 
 export const metadata: Metadata = {
   title: myLabStoryTitle,
