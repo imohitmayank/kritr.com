@@ -11,9 +11,31 @@ import {
 } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Home",
-  description:
-    "Kritr helps people make clearer decisions with AI, through products, applications, and collaboration."
+  title: {
+    absolute: siteConfig.title
+  },
+  description: siteConfig.description,
+  openGraph: {
+    type: "website",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: "/",
+    siteName: "Kritr",
+    images: [
+      {
+        url: "/og-kritr.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Kritr logo"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: ["/og-kritr.jpg"]
+  }
 };
 
 export default function HomePage() {
