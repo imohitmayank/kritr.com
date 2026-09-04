@@ -18,10 +18,33 @@ import {
   siteConfig
 } from "@/lib/content";
 
+const myLabStoryTitle = "MyLabStory";
+const myLabStoryDescription =
+  "MyLabStory turns scattered medical reports into a living health history you can search, understand, and keep.";
+
 export const metadata: Metadata = {
-  title: "MyLabStory",
-  description:
-    "MyLabStory turns scattered medical reports into a living health history you can search, understand, and keep."
+  title: myLabStoryTitle,
+  description: myLabStoryDescription,
+  openGraph: {
+    title: myLabStoryTitle,
+    description: myLabStoryDescription,
+    url: "/mylabstory/",
+    siteName: "MyLabStory",
+    images: [
+      {
+        url: "/og-mylabstory.jpg",
+        width: 1536,
+        height: 1024,
+        alt: "MyLabStory — your health journey, decoded"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: myLabStoryTitle,
+    description: myLabStoryDescription,
+    images: ["/og-mylabstory.jpg"]
+  }
 };
 
 export default function MyLabStoryPage() {

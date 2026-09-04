@@ -8,10 +8,10 @@ import { siteConfig } from "@/lib/content";
 
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kritr.com";
 
 export const metadata: Metadata = {
-  metadataBase: siteUrl ? new URL(siteUrl) : undefined,
+  metadataBase: new URL(siteUrl),
   title: {
     default: siteConfig.title,
     template: "%s | Kritr"
@@ -29,12 +29,22 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Kritr",
     title: siteConfig.title,
-    description: siteConfig.description
+    description: siteConfig.description,
+    url: "/",
+    images: [
+      {
+        url: "/og-kritr.jpg",
+        width: 1168,
+        height: 880,
+        alt: "Kritr"
+      }
+    ]
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
-    description: siteConfig.description
+    description: siteConfig.description,
+    images: ["/og-kritr.jpg"]
   }
 };
 
