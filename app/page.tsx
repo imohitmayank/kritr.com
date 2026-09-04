@@ -16,9 +16,11 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   openGraph: {
+    type: "website",
     title: siteConfig.title,
     description: siteConfig.description,
     url: "/",
+    siteName: "Kritr",
     images: [
       {
         url: "/og-kritr.jpg",

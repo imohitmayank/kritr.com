@@ -26,6 +26,7 @@ export const metadata: Metadata = {
   title: myLabStoryTitle,
   description: myLabStoryDescription,
   openGraph: {
+    type: "website",
     title: myLabStoryTitle,
     description: myLabStoryDescription,
     url: "/mylabstory/",
