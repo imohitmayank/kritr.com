@@ -34,9 +34,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-mylabstory.jpg",
-        width: 1536,
-        height: 1024,
-        alt: "MyLabStory — your health journey, decoded"
+        width: 1200,
+        height: 630,
+        alt: "MyLabStory logo"
       }
     ]
   },
