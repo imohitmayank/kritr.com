@@ -10,6 +10,8 @@ import {
   siteConfig
 } from "@/lib/content";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kritr.com";
+
 export const metadata: Metadata = {
   title: {
     absolute: siteConfig.title
@@ -27,6 +29,15 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "Kritr logo"
+      }
+    ],
+    videos: [
+      {
+        url: `${siteUrl}/og-kritr.mp4`,
+        secureUrl: `${siteUrl}/og-kritr.mp4`,
+        type: "video/mp4",
+        width: 1200,
+        height: 630
       }
     ]
   },

@@ -20,6 +20,7 @@ import {
 
 const myLabStoryTitle = "MyLabStory";
 const myLabStoryDescription = "Your health journey, decoded.";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kritr.com";
 
 export const metadata: Metadata = {
   title: myLabStoryTitle,
@@ -36,6 +37,15 @@ export const metadata: Metadata = {
         width: 1536,
         height: 1024,
         alt: "MyLabStory — your health journey, decoded"
+      }
+    ],
+    videos: [
+      {
+        url: `${siteUrl}/og-mylabstory.mp4`,
+        secureUrl: `${siteUrl}/og-mylabstory.mp4`,
+        type: "video/mp4",
+        width: 1200,
+        height: 630
       }
     ]
   },
