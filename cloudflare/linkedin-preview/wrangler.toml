@@ -1,0 +1,11 @@
+name = "kritr-linkedin-preview"
+main = "src/index.js"
+compatibility_date = "2026-10-24"
+workers_dev = false
+
+# One route for the kritr.com zone. fetch(request) goes to the GitHub Pages
+# origin, not back through this worker. Only LinkedInBot HTML is rewritten,
+# so https://kritr.com/ and https://kritr.com/mylabstory/ are both covered.
+routes = [
+  { pattern = "kritr.com/*", zone_name = "kritr.com" },
+]
