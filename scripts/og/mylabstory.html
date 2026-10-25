@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>MyLabStory OG video</title>
+  <style>
+    @font-face {
+      font-family: "Newsreader";
+      src: url("fonts/newsreader-500.woff2") format("woff2");
+      font-weight: 500;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: "Manrope";
+      src: url("fonts/manrope-400.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: "Manrope";
+      src: url("fonts/manrope-500.woff2") format("woff2");
+      font-weight: 500;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: "Manrope";
+      src: url("fonts/manrope-600.woff2") format("woff2");
+      font-weight: 600;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: "Manrope";
+      src: url("fonts/manrope-700.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+    }
+
+    html, body {
+      margin: 0;
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #f4f8fb;
+    }
+
+    #stage {
+      position: relative;
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 50% 80% at 100% 18%, rgba(14, 165, 233, 0.18), transparent 60%),
+        radial-gradient(ellipse 42% 55% at 0% 100%, rgba(56, 189, 248, 0.14), transparent 62%),
+        radial-gradient(circle at 72% 78%, rgba(186, 230, 253, 0.45), transparent 36%),
+        #f5f9fc;
+    }
+
+    #dots {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(14, 116, 164, 0.16) 1.1px, transparent 1.2px);
+      background-size: 22px 22px;
+      mask-image: radial-gradient(ellipse 55% 70% at 78% 42%, #000 20%, transparent 72%);
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    #orb {
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(125, 211, 252, 0.5), rgba(125, 211, 252, 0) 68%);
+      filter: blur(8px);
+      pointer-events: none;
+    }
+
+    /*
+      Critical content stays inside a 10% inset (120px x, 63px y) so iMessage
+      and social cards can cover-crop the frame without clipping the headline
+      or the phone bezel. Background gradients still bleed to the canvas edge.
+    */
+    #copy {
+      position: absolute;
+      left: 120px;
+      top: 72px;
+      width: 560px;
+      z-index: 3;
+    }
+
+    #brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    #logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      box-shadow: 0 8px 18px rgba(14, 116, 180, 0.16);
+    }
+
+    #word {
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 500;
+      font-size: 28px;
+      letter-spacing: -0.03em;
+      color: #10233f;
+    }
+
+    h1 {
+      margin: 16px 0 0;
+      font-family: "Manrope", "Avenir Next", sans-serif;
+      font-weight: 700;
+      font-size: 46px;
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+      color: #10233f;
+    }
+
+    h1 .accent {
+      display: inline-block;
+      background: linear-gradient(100deg, #0284c7 0%, #0ea5e9 55%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    #sub {
+      margin-top: 10px;
+      font-family: "Manrope", sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      color: #5c6b80;
+    }
+
+    #panel {
+      margin-top: 18px;
+      width: 500px;
+      height: 168px;
+      position: relative;
+    }
+
+    .card {
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow:
+        0 16px 32px rgba(15, 40, 70, 0.08),
+        0 1px 0 rgba(255, 255, 255, 0.8) inset;
+    }
+
+    #report {
+      padding: 14px 16px 12px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .eyebrow {
+      font-family: "Manrope", sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #64748b;
+    }
+
+    #report h2, #trend h2 {
+      margin: 3px 0 0;
+      font-family: "Manrope", sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #10233f;
+    }
+
+    #rows {
+      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 5px 0;
+      border-top: 1px solid rgba(15, 35, 63, 0.08);
+      font-family: "Manrope", sans-serif;
+    }
+
+    .row .k {
+      font-size: 13px;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .row .v {
+      font-size: 13px;
+      font-weight: 700;
+      color: #10233f;
+      letter-spacing: -0.02em;
+    }
+
+    #trend {
+      padding: 14px 16px 6px;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+    }
+
+    #trend-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    #stable {
+      margin-top: 2px;
+      border-radius: 999px;
+      background: #ecfdf3;
+      color: #15803d;
+      font-family: "Manrope", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      padding: 4px 10px;
+    }
+
+    #value {
+      margin-top: 2px;
+      font-family: "Manrope", sans-serif;
+      font-weight: 700;
+      font-size: 26px;
+      letter-spacing: -0.04em;
+      color: #10233f;
+      line-height: 1;
+    }
+
+    #value span {
+      font-size: 13px;
+      font-weight: 600;
+      color: #64748b;
+      letter-spacing: 0;
+      margin-left: 4px;
+    }
+
+    #chart {
+      margin-top: 2px;
+      width: 100%;
+      height: 72px;
+      display: block;
+    }
+
+    #phone-wrap {
+      position: absolute;
+      top: 74px;
+      right: 136px;
+      width: 232px;
+      z-index: 2;
+      filter: drop-shadow(0 18px 24px rgba(15, 40, 70, 0.18));
+      transform-origin: center center;
+    }
+
+    #phone {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="stage">
+    <div id="dots"></div>
+    <div id="orb"></div>
+    <div id="copy">
+      <div id="brand">
+        <img id="logo" src="assets/logo.png" alt="" />
+        <div id="word">MyLabStory</div>
+      </div>
+      <h1>Your health journey,<br /><span class="accent">decoded.</span></h1>
+      <div id="sub">Lab reports, turned into trends.</div>
+      <div id="panel">
+        <div class="card" id="report">
+          <div class="eyebrow">Lab report</div>
+          <h2>Blood report</h2>
+          <div id="rows">
+            <div class="row"><span class="k">Hemoglobin</span><span class="v">13.5 g/dL</span></div>
+            <div class="row"><span class="k">TSH</span><span class="v">3.8 µIU/mL</span></div>
+            <div class="row"><span class="k">Vitamin B12</span><span class="v">310 pg/mL</span></div>
+          </div>
+        </div>
+        <div class="card" id="trend">
+          <div id="trend-head">
+            <div>
+              <div class="eyebrow">Trend</div>
+              <h2>Hemoglobin</h2>
+            </div>
+            <div id="stable">Stable</div>
+          </div>
+          <div id="value">13.5<span>g/dL</span></div>
+          <svg id="chart" viewBox="0 0 520 90" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path id="area" fill="url(#fill)"></path>
+            <path id="base" fill="none" stroke="#bae6fd" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path id="draw" fill="none" stroke="#0284c7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle id="pen" r="5.5" fill="#fff" stroke="#0284c7" stroke-width="3"></circle>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div id="phone-wrap">
+      <img id="phone" src="assets/phone.png" alt="" />
+    </div>
+  </div>
+  <script>
+    const D = 6.4;
+    const phoneWrap = document.getElementById("phone-wrap");
+    const orb = document.getElementById("orb");
+    const report = document.getElementById("report");
+    const trend = document.getElementById("trend");
+    const stable = document.getElementById("stable");
+    const base = document.getElementById("base");
+    const draw = document.getElementById("draw");
+    const area = document.getElementById("area");
+    const pen = document.getElementById("pen");
+
+    const pts = [
+      [8, 62],
+      [70, 58],
+      [130, 50],
+      [190, 54],
+      [250, 40],
+      [310, 44],
+      [370, 30],
+      [430, 28],
+      [512, 18]
+    ];
+
+    function pathFrom(points) {
+      let d = `M ${points[0][0]} ${points[0][1]}`;
+      for (let i = 0; i < points.length - 1; i++) {
+        const p0 = points[i === 0 ? i : i - 1];
+        const p1 = points[i];
+        const p2 = points[i + 1];
+        const p3 = points[i + 2] || p2;
+        const c1x = p1[0] + (p2[0] - p0[0]) / 6;
+        const c1y = p1[1] + (p2[1] - p0[1]) / 6;
+        const c2x = p2[0] - (p3[0] - p1[0]) / 6;
+        const c2y = p2[1] - (p3[1] - p1[1]) / 6;
+        d += ` C ${c1x} ${c1y}, ${c2x} ${c2y}, ${p2[0]} ${p2[1]}`;
+      }
+      return d;
+    }
+
+    const line = pathFrom(pts);
+    const areaPath = `${line} L 512 90 L 8 90 Z`;
+    base.setAttribute("d", line);
+    draw.setAttribute("d", line);
+    area.setAttribute("d", areaPath);
+    const length = draw.getTotalLength();
+    draw.style.strokeDasharray = String(length);
+
+    const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+    const lerp = (a, b, t) => a + (b - a) * t;
+    const range = (t, a, b) => clamp((t - a) / (b - a), 0, 1);
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+    const easeIn = (t) => t * t * t;
+    const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+    function pointAt(u) {
+      const target = length * clamp(u, 0, 1);
+      return draw.getPointAtLength(target);
+    }
+
+    window.DURATION = D;
+    window.render = function render(t) {
+      const ang = (t / D) * Math.PI * 2;
+      const floatY = Math.sin(ang) * 5;
+      phoneWrap.style.transform = `rotate(-3.5deg) translateY(${floatY}px)`;
+
+      orb.style.left = lerp(560, 700, (1 - Math.cos(ang)) / 2) + "px";
+      orb.style.top = lerp(40, 120, (1 - Math.cos(ang + 0.6)) / 2) + "px";
+
+      const reportOut = easeIn(range(t, 0.85, 1.35));
+      const reportBack = easeOut(range(t, 4.7, 5.25));
+      const reportOp = t < 3.2 ? 1 - reportOut : reportBack;
+      report.style.opacity = String(reportOp);
+      report.style.transform = "translateY(0px)";
+
+      const trendIn = easeOut(range(t, 1.05, 1.55));
+      const trendOut = easeIn(range(t, 4.45, 5.05));
+      const trendOp = trendIn * (1 - trendOut);
+      trend.style.opacity = String(trendOp);
+      trend.style.transform = `translateY(${lerp(10, 0, trendIn)}px)`;
+
+      const drawn = easeInOut(range(t, 1.45, 3.35));
+      draw.style.strokeDashoffset = String(length * (1 - drawn));
+      area.style.opacity = String(0.15 + 0.85 * drawn);
+
+      const p = pointAt(drawn);
+      const penOp = trendOp * (drawn > 0.02 ? 1 : 0);
+      pen.setAttribute("cx", p.x);
+      pen.setAttribute("cy", p.y);
+      pen.style.opacity = String(penOp);
+
+      const pulse = range(t, 3.25, 3.75);
+      const scale = 1 + 0.06 * Math.sin(pulse * Math.PI);
+      stable.style.transform = `scale(${trendOp > 0 ? scale : 1})`;
+    };
+  </script>
+</body>
+</html>
