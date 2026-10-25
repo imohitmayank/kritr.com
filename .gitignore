@@ -14,3 +14,12 @@
 
 # typescript
 *.tsbuildinfo
+
+# Open Graph generator intermediates (scripts/og/generate.sh)
+scripts/og/node_modules/
+scripts/og/fonts/
+scripts/og/assets/
+scripts/og/frames-mls/
+scripts/og/preview-mls/
+scripts/og/package.json
+scripts/og/package-lock.json
