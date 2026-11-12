@@ -93,8 +93,10 @@ export default function MyLabStoryPage() {
               Your health journey, decoded.
             </h1>
             <p className="animate-hero-fade-delay-2 mt-5 max-w-lg text-base leading-7 text-white/80 sm:text-lg sm:leading-8">
-              Your health is a story, not a stack of reports. Upload what you
-              already have. We turn it into a history you can actually use.
+              Never lose track of your lab results, and see how your markers
+              change over time. Your health is a story, not a stack of reports.
+              Free to start. Premium adds automatic analysis, higher limits,
+              and family profiles.
             </p>
             <div className="animate-hero-fade-delay-2 mt-9 flex flex-wrap gap-3">
               <ButtonLink
@@ -226,7 +228,7 @@ export default function MyLabStoryPage() {
       <Section
         eyebrow="Ahead"
         title="A longer story, over time"
-        description="The product starts with reports. The direction is a personal health companion: family, medicines, wearables, and patterns that only show up across years."
+        description="The product starts with reports. The direction is a personal health companion: medicines, wearables, and patterns that only show up across years."
       >
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {myLabStoryVisionPoints.map((point) => (
@@ -244,8 +246,8 @@ export default function MyLabStoryPage() {
 
       <CtaBand
         eyebrow="Available now"
-        title="One home for your health history."
-        description="Download MyLabStory on the App Store, or write if you have questions."
+        title="Never lose track of your lab results."
+        description="See how your markers change over time. Free to start. Premium adds automatic analysis, higher limits, and family profiles."
         primary={{
           href: siteConfig.downloadHref,
           label: "Download on the App Store"
