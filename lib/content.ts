@@ -151,7 +151,7 @@ export const myLabStoryFeatures = [
   {
     title: "Upload a report",
     description:
-      "A PDF, a photo, or a camera scan, kept in your library. Analysis reads biomarkers, values, units, and ranges. Premium starts that on upload. On the free plan, you tap Analyze with AI.",
+      "A PDF, a photo, or a camera scan, kept in your library. Analysis reads biomarkers, values, units, and ranges.",
     eyebrow: "Capture"
   },
   {
@@ -187,7 +187,7 @@ export const myLabStoryFeatures = [
   {
     title: "Family profiles",
     description:
-      "Parents, children, a spouse. Separate reports and trends, and a switch in one tap. Your own profile is free. Adding anyone else is part of Premium.",
+      "Parents, children, a spouse. Separate reports and trends, and a switch in one tap.",
     eyebrow: "Family"
   }
 ];
