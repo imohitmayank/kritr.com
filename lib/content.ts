@@ -83,7 +83,7 @@ export const myLabStoryScreenshots: AppScreenshot[] = [
   {
     src: "/mylabstory/screenshots/capture.webp",
     alt: "MyLabStory add document screen with upload and camera options",
-    caption: "AI document upload"
+    caption: "Upload a report"
   },
   {
     src: "/mylabstory/screenshots/summaries.webp",
@@ -149,9 +149,9 @@ export const myLabStorySolutionSteps = [
 
 export const myLabStoryFeatures = [
   {
-    title: "AI document upload",
+    title: "Upload a report",
     description:
-      "Camera, PDF, or image. The report is read automatically: biomarkers, values, units, and ranges included.",
+      "A PDF, a photo, or a camera scan, kept in your library. Analysis reads biomarkers, values, units, and ranges.",
     eyebrow: "Capture"
   },
   {
@@ -183,6 +183,12 @@ export const myLabStoryFeatures = [
     description:
       "Recent reports, highlights, and a sense of what has changed, without opening five PDFs.",
     eyebrow: "Overview"
+  },
+  {
+    title: "Family profiles",
+    description:
+      "Parents, children, a spouse. Separate reports and trends, and a switch in one tap.",
+    eyebrow: "Family"
   }
 ];
 
@@ -205,10 +211,6 @@ export const myLabStoryTrustPoints = [
 ];
 
 export const myLabStoryVisionPoints = [
-  {
-    title: "Family health",
-    description: "Parents, children, a spouse. One account for the people you already look after."
-  },
   {
     title: "Medicines and visits",
     description: "Prescriptions, reminders, appointments, and notes alongside the reports they belong to."

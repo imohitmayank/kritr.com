@@ -226,7 +226,7 @@ export default function MyLabStoryPage() {
       <Section
         eyebrow="Ahead"
         title="A longer story, over time"
-        description="The product starts with reports. The direction is a personal health companion: family, medicines, wearables, and patterns that only show up across years."
+        description="The product starts with reports. The direction is a personal health companion: medicines, wearables, and patterns that only show up across years."
       >
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {myLabStoryVisionPoints.map((point) => (
@@ -244,8 +244,8 @@ export default function MyLabStoryPage() {
 
       <CtaBand
         eyebrow="Available now"
-        title="One home for your health history."
-        description="Download MyLabStory on the App Store, or write if you have questions."
+        title="Never lose track of your lab results."
+        description="See how your markers change over time."
         primary={{
           href: siteConfig.downloadHref,
           label: "Download on the App Store"
