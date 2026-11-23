@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { PartnerStrip } from "@/components/partner-strip";
 import { SocialLinks } from "@/components/social-links";
 import { myLabStorySocialLinks, siteConfig } from "@/lib/content";
 
@@ -53,6 +54,7 @@ export function Footer() {
           ) : null}
         </div>
       </div>
+      <PartnerStrip placement="footer" />
     </footer>
   );
 }

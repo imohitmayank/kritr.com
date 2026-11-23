@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { Footer } from "@/components/footer";
 import { CookieBanner } from "@/components/cookie-banner";
 import { Navbar } from "@/components/navbar";
+import { PartnerStrip } from "@/components/partner-strip";
 import { siteConfig } from "@/lib/content";
 
 import "./globals.css";
@@ -64,6 +65,7 @@ export default function RootLayout({
         </a>
         <Navbar />
         <main id="content">{children}</main>
+        <PartnerStrip placement="above" />
         <Footer />
         <CookieBanner />
       </body>
