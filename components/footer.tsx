@@ -54,7 +54,7 @@ export function Footer() {
           ) : null}
         </div>
       </div>
-      <PartnerStrip placement="footer" />
+      <PartnerStrip />
     </footer>
   );
 }
